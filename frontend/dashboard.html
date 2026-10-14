@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecureShare - Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- Header -->
+
+        <header class="dashboard-header">
+
+            <div>
+                <h1>🔐 SecureShare</h1>
+                <p>Secure File Sharing System</p>
+            </div>
+
+            <div class="user-section">
+
+                <span>
+                    Welcome, <strong id="username"></strong>
+                </span>
+
+                <button id="logoutButton">
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Main Content -->
+
+        <main class="dashboard-main">
+
+
+            <!-- Upload Section -->
+
+            <section class="dashboard-card">
+
+                <h2>📤 Upload Secure File</h2>
+
+                <p>
+                    Upload a file to encrypt it and generate a secure sharing code.
+                </p>
+
+                <form id="uploadForm">
+
+                    <input
+                        type="file"
+                        id="fileInput"
+                        required
+                    >
+
+                    <button type="submit">
+                        Upload & Encrypt
+                    </button>
+
+                </form>
+
+                <p id="uploadMessage"></p>
+
+
+                <!-- Upload Result -->
+
+                <div
+                    id="uploadResult"
+                    class="result-box"
+                    style="display: none;"
+                >
+
+                    <h3>✅ File Secured Successfully</h3>
+
+                    <p>
+                        <strong>File:</strong>
+                        <span id="uploadedFilename"></span>
+                    </p>
+
+                    <p>
+                        <strong>File Code:</strong>
+                    </p>
+
+                    <div class="file-code" id="fileCode"></div>
+
+                    <p>
+                        <strong>Expires:</strong>
+                        <span id="expiresAt"></span>
+                    </p>
+
+                    <p class="warning">
+                        ⚠️ Share this code only with the intended recipient.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Download Section -->
+
+            <section class="dashboard-card">
+
+                <h2>📥 Download File</h2>
+
+                <p>
+                    Enter the file code provided by the sender.
+                </p>
+
+                <form id="downloadForm">
+
+                    <input
+                        type="text"
+                        id="downloadCode"
+                        placeholder="Enter 8-character file code"
+                        maxlength="8"
+                        required
+                    >
+
+                    <button type="submit">
+                        Download File
+                    </button>
+
+                </form>
+
+                <p id="downloadMessage"></p>
+
+            </section>
+
+
+            <!-- Security Information -->
+
+            <section class="dashboard-card security-card">
+
+                <h2>🛡️ Security Features</h2>
+
+                <div class="security-grid">
+
+                    <div>
+                        🔐
+                        <strong>Fernet Encryption</strong>
+                        <p>Files are encrypted before storage.</p>
+                    </div>
+
+                    <div>
+                        🔑
+                        <strong>Argon2 Password Hashing</strong>
+                        <p>Passwords are securely hashed.</p>
+                    </div>
+
+                    <div>
+                        🎫
+                        <strong>JWT Authentication</strong>
+                        <p>Protected operations require authentication.</p>
+                    </div>
+
+                    <div>
+                        ⏱️
+                        <strong>File Expiration</strong>
+                        <p>Sharing codes expire after one hour.</p>
+                    </div>
+
+                    <div>
+                        📋
+                        <strong>Audit Logging</strong>
+                        <p>Important file activities are recorded.</p>
+                    </div>
+
+                    <div>
+                        🛡️
+                        <strong>Authorization</strong>
+                        <p>Users cannot access another user's protected files.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
